@@ -285,7 +285,7 @@ impl<F: ArkPrimeField> MemBuilder<F> {
 
         let addr = self.stack_ptrs[sr];
         let read_elem = if !cond {
-            let mut re = MemElem::padding(addr, ty.elem_len());
+            let re = MemElem::padding(addr, ty.elem_len());
             // re.sr = F::from(sr as u64);
             re
         } else if self.mem.contains_key(&(addr, sr)) {
